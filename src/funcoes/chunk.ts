@@ -12,5 +12,19 @@
  * @returns 
  */
 export const chunk = (valores: number[], tamanho: number): number[][] => {
-  return null;
+  let arrayResultado = []
+  let auxValores = [...valores]
+  for (let i = 0; i < (valores.length / tamanho); i++) {
+    let arrayAuxGrupos: number[] = []
+    for (let j = 0; j < tamanho; j++) {
+      if (auxValores[0] !== undefined) {
+        arrayAuxGrupos.push(auxValores[0])
+      } else {
+        break
+      }
+      auxValores.shift()
+    }
+    arrayResultado.push(arrayAuxGrupos)
+  }
+  return arrayResultado
 };
